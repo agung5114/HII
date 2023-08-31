@@ -19,7 +19,7 @@ from PIL import Image
 st.sidebar.image('grip.png')
 st.sidebar.title("GEOSPATIAL RISK PREDICTION \
                  FOR DM & TB")
-menu = ["Monitoring","Geospatial Factors","Early Risk Detection","Risk Prediction","Treatment & Help"]
+menu = ["Monitoring","Geospatial Factors","Risk Mapping & Prediction","Treatment & Help"]
 choice = st.sidebar.selectbox("Select Menu", menu)
 
 @st.cache_data
@@ -79,7 +79,7 @@ elif choice == "Geospatial Factors":
         st.image('dmfactors.png')
         st.image('tbfactors.png')
 
-elif choice == "Early Risk Detection":
+elif choice == "Risk Mapping & Prediction":
     genre = st.sidebar.radio("Risk Level",('Cities', 'Individuals'))
     if genre == 'Cities':
         import streamlit.components.v1 as components
@@ -199,41 +199,41 @@ elif choice == "Early Risk Detection":
 
         # st.table(dftest)
 
-elif choice=="Risk Prediction":
-    with st.expander('Environment & Lifestyle Factors', expanded=True):
-            c1,c2,c3= st.columns((1,1,1))
-            with c1:
-                # bv = dfc.iloc[0,1:15].astype('float').tolist()
-                st.text_input(label='s1'+" (%)",value=int(10000)/100)
-                st.text_input(label='s2'+" (%)",value=int(10000)/100)
-            with c2:
-                #min value
-                v1min = st.number_input(label="PelayananUmum min(%)",value=50.0,min_value=0.0, max_value=100.0, step=1.0)
-                v2min = st.number_input(label="Pendidikan min(%)",value=20.0,min_value=0.0, max_value=100.0, step=1.0)
-            with c3:
-                #max value
-                v1max = st.number_input(label="PelayananUmum max (%)",value=60.0,min_value=0.0, max_value=100.0, step=1.0)
-                v2max = st.number_input(label="Pendidikan max (%)",value=80.0,min_value=0.0, max_value=100.0, step=1.0)
+# elif choice=="Risk Prediction":
+#     with st.expander('Environment & Lifestyle Factors', expanded=True):
+#             c1,c2,c3= st.columns((1,1,1))
+#             with c1:
+#                 # bv = dfc.iloc[0,1:15].astype('float').tolist()
+#                 st.text_input(label='s1'+" (%)",value=int(10000)/100)
+#                 st.text_input(label='s2'+" (%)",value=int(10000)/100)
+#             with c2:
+#                 #min value
+#                 v1min = st.number_input(label="PelayananUmum min(%)",value=50.0,min_value=0.0, max_value=100.0, step=1.0)
+#                 v2min = st.number_input(label="Pendidikan min(%)",value=20.0,min_value=0.0, max_value=100.0, step=1.0)
+#             with c3:
+#                 #max value
+#                 v1max = st.number_input(label="PelayananUmum max (%)",value=60.0,min_value=0.0, max_value=100.0, step=1.0)
+#                 v2max = st.number_input(label="Pendidikan max (%)",value=80.0,min_value=0.0, max_value=100.0, step=1.0)
 
-    with st.expander('Individual Factors', expanded=True):
-            c1,c2,c3= st.columns((1,1,1))
-            with c1:
-                # bv = dfc.iloc[0,1:15].astype('float').tolist()
-                st.text_input(label='s3'+" (%)",value=int(10000)/100)
-                st.text_input(label='s4'+" (%)",value=int(10000)/100)
-            with c2:
-                #min value
-                v1min = st.number_input(label="s5",value=50.0,min_value=0.0, max_value=100.0, step=1.0)
-                v2min = st.number_input(label="s6",value=20.0,min_value=0.0, max_value=100.0, step=1.0)
-            with c3:
-                #max value
-                v1max = st.number_input(label="s7",value=60.0,min_value=0.0, max_value=100.0, step=1.0)
-                v2max = st.number_input(label="s8",value=80.0,min_value=0.0, max_value=100.0, step=1.0)
+#     with st.expander('Individual Factors', expanded=True):
+#             c1,c2,c3= st.columns((1,1,1))
+#             with c1:
+#                 # bv = dfc.iloc[0,1:15].astype('float').tolist()
+#                 st.text_input(label='s3'+" (%)",value=int(10000)/100)
+#                 st.text_input(label='s4'+" (%)",value=int(10000)/100)
+#             with c2:
+#                 #min value
+#                 v1min = st.number_input(label="s5",value=50.0,min_value=0.0, max_value=100.0, step=1.0)
+#                 v2min = st.number_input(label="s6",value=20.0,min_value=0.0, max_value=100.0, step=1.0)
+#             with c3:
+#                 #max value
+#                 v1max = st.number_input(label="s7",value=60.0,min_value=0.0, max_value=100.0, step=1.0)
+#                 v2max = st.number_input(label="s8",value=80.0,min_value=0.0, max_value=100.0, step=1.0)
 
-        # Solve the problem
-    st.write("Penghitungan Alokasi Anggaran Paling Efisien")
-    if st.button("Klik untuk Jalankan"):
-        st.write("Sukses")
+#         # Solve the problem
+#     st.write("Penghitungan Alokasi Anggaran Paling Efisien")
+#     if st.button("Klik untuk Jalankan"):
+#         st.write("Sukses")
 
 elif choice == "Treatment & Help":
-    st.write("")
+    st.write("Hubungi Fasilitas Kesehatan Terdekat")
