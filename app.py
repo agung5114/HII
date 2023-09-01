@@ -1,5 +1,6 @@
 import streamlit as st
-st.set_page_config(page_title="GRIP", page_icon=None, layout="wide", initial_sidebar_state="auto",menu_items=None)
+st.set_page_config(page_title="GRIP", page_icon=None,layout="wide", initial_sidebar_state="auto",menu_items=None)
+                #    {'About': "# This is a header. This is an *extremely* cool app!"}
 import plotly.express as px 
 import plotly.graph_objects as go
 
@@ -19,7 +20,7 @@ from PIL import Image
 st.sidebar.image('grip.png')
 st.sidebar.title("GEOSPATIAL RISK PREDICTION \
                  FOR DM & TB")
-menu = ["Monitoring","Geospatial Factors","Risk Mapping & Prediction","Treatment & Help"]
+menu = ["Monitoring","Geospatial Factors","Risk Prediction","Treatment & Help"]
 choice = st.sidebar.selectbox("Select Menu", menu)
 
 @st.cache_data
@@ -63,23 +64,23 @@ elif choice == "Monitoring":
     import streamlit.components.v1 as components
     components.html('''
         <div class='tableauPlaceholder' id='viz1693410447726' style='position: relative'><noscript><a href='#'><img alt='Dashboard Monitoring DM dan TB ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;bp&#47;bpjs_2023&#47;DashboardMonitoringDMdanTB&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='bpjs_2023&#47;DashboardMonitoringDMdanTB' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;bp&#47;bpjs_2023&#47;DashboardMonitoringDMdanTB&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1693410447726');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='1677px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-        ''',width=1280,height=950)
+        ''',height=1677)
     
 elif choice == "Geospatial Factors":
     # st.subheader('Dashboard')
-    c1,c2 = st.columns((2,1))
+    c1,c2 = st.columns((5,2))
     with c1:
         import streamlit.components.v1 as components
         components.html(
         '''<div class='tableauPlaceholder' id='viz1693288229970' style='position: relative'><noscript><a href='#'><img alt='Peta Risiko DM dan TB  ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pe&#47;PetaRisikoDMdanTB&#47;PetaRisikoDMdanTB_1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='PetaRisikoDMdanTB&#47;PetaRisikoDMdanTB_1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pe&#47;PetaRisikoDMdanTB&#47;PetaRisikoDMdanTB_1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1693288229970');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='800px';vizElement.style.height='627px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='800px';vizElement.style.height='627px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>'''
-        ,width=1280,height=720)
+        ,height=627)
     with c2:
         st.subheader('Analisis Regresi')
         st.write('Faktor-faktor lingkungan dan Gaya hidup berdasarkan lokasi peserta terbukti berpengaruh terhadap tingkat prevelansi risiko DM dan TB')
         st.image('dmfactors.png')
         st.image('tbfactors.png')
 
-elif choice == "Risk Mapping & Prediction":
+elif choice == "Risk Prediction":
     genre = st.sidebar.radio("Risk Level",('Cities', 'Individuals'))
     if genre == 'Cities':
         import streamlit.components.v1 as components
@@ -87,7 +88,12 @@ elif choice == "Risk Mapping & Prediction":
         '''
         <div class='tableauPlaceholder' id='viz1693420731003' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;bp&#47;bpjs_grip&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='bpjs_grip&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;bp&#47;bpjs_grip&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1693420731003');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='977px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
         '''
-        ,width=1600,height=900)
+        ,height=977)
+        # components.iframe(
+        # '''
+        # https://public.tableau.com/views/bpjs_grip/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link
+        # '''
+        # ,width=1600,height=900)
     else:
         st.subheader('Prediksi Risiko Peserta Berdasarkan Karakteristik Individu, Faktor Lingkungan dan Gaya Hidup')
         df = getData('sample_peserta.csv',';')
@@ -195,45 +201,6 @@ elif choice == "Risk Mapping & Prediction":
                 # st.subheader(f"Prevalensi DM: {int(datapeserta['dm_pred'].values[0]*100)/1000}")
                 st.subheader(f"Risiko TB: {tbrisk}")
         # input vars
-        
-
-        # st.table(dftest)
-
-# elif choice=="Risk Prediction":
-#     with st.expander('Environment & Lifestyle Factors', expanded=True):
-#             c1,c2,c3= st.columns((1,1,1))
-#             with c1:
-#                 # bv = dfc.iloc[0,1:15].astype('float').tolist()
-#                 st.text_input(label='s1'+" (%)",value=int(10000)/100)
-#                 st.text_input(label='s2'+" (%)",value=int(10000)/100)
-#             with c2:
-#                 #min value
-#                 v1min = st.number_input(label="PelayananUmum min(%)",value=50.0,min_value=0.0, max_value=100.0, step=1.0)
-#                 v2min = st.number_input(label="Pendidikan min(%)",value=20.0,min_value=0.0, max_value=100.0, step=1.0)
-#             with c3:
-#                 #max value
-#                 v1max = st.number_input(label="PelayananUmum max (%)",value=60.0,min_value=0.0, max_value=100.0, step=1.0)
-#                 v2max = st.number_input(label="Pendidikan max (%)",value=80.0,min_value=0.0, max_value=100.0, step=1.0)
-
-#     with st.expander('Individual Factors', expanded=True):
-#             c1,c2,c3= st.columns((1,1,1))
-#             with c1:
-#                 # bv = dfc.iloc[0,1:15].astype('float').tolist()
-#                 st.text_input(label='s3'+" (%)",value=int(10000)/100)
-#                 st.text_input(label='s4'+" (%)",value=int(10000)/100)
-#             with c2:
-#                 #min value
-#                 v1min = st.number_input(label="s5",value=50.0,min_value=0.0, max_value=100.0, step=1.0)
-#                 v2min = st.number_input(label="s6",value=20.0,min_value=0.0, max_value=100.0, step=1.0)
-#             with c3:
-#                 #max value
-#                 v1max = st.number_input(label="s7",value=60.0,min_value=0.0, max_value=100.0, step=1.0)
-#                 v2max = st.number_input(label="s8",value=80.0,min_value=0.0, max_value=100.0, step=1.0)
-
-#         # Solve the problem
-#     st.write("Penghitungan Alokasi Anggaran Paling Efisien")
-#     if st.button("Klik untuk Jalankan"):
-#         st.write("Sukses")
 
 elif choice == "Treatment & Help":
-    st.write("Hubungi Fasilitas Kesehatan Terdekat")
+    st.write("In development")
