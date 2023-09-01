@@ -20,7 +20,7 @@ from PIL import Image
 st.sidebar.image('grip.png')
 st.sidebar.title("GEOSPATIAL RISK PREDICTION \
                  FOR DM & TB")
-menu = ["Monitoring","Geospatial Factors","Risk Prediction","Treatment & Help"]
+menu = ["Monitoring","Geospatial Factors","Risk Mapping & Prediction","Treatment & Help"]
 choice = st.sidebar.selectbox("Select Menu", menu)
 
 @st.cache_data
@@ -80,7 +80,7 @@ elif choice == "Geospatial Factors":
         st.image('dmfactors.png')
         st.image('tbfactors.png')
 
-elif choice == "Risk Prediction":
+elif choice == "Risk Mapping & Prediction":
     genre = st.sidebar.radio("Risk Level",('Cities', 'Individuals'))
     if genre == 'Cities':
         import streamlit.components.v1 as components
