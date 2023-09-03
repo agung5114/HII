@@ -190,17 +190,6 @@ elif choice == "Individual Risk Prediction":
         with st.expander('Penanganan Diabetes Melitus', expanded=True):
             if dmrisk1 != None:
                 st.image(f'dm_{dmrisk1}.png')
-                components.html(
-                    '''
-                    <h3>
-                    Perubahan pola hidup untuk pasien diabetes resiko kecil
-                    1.	Makan Makanan Bergizi Seimbang
-                    2.	Batasi Karbohidrat dan Gula
-                    3.	Lakukan Aktivitas Fisik Lebih Banyak
-                    4.	Tidur Cukup
-                    </h3>
-                    '''
-                )
             else:
                 st.image(f'dm_{dmrisk}.png')
     with t2:
