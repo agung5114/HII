@@ -168,7 +168,7 @@ elif choice == "Individual Risk Prediction":
                     dmrisk1 = dfrisk1['dm_risk'].values[0]
                     # tbrisk1 = dfresult['tb_risk'].values[0]
                     # nonrisk1 = dfresult['non_pred'].values[0]
-                    from annotated_text import annotated_text
+                    # from annotated_text import annotated_text
 
                     model2 = joblib.load('tbmodel.sav')
                     result2 = model2.predict_proba(dftest)
