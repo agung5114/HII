@@ -95,7 +95,7 @@ elif choice =="Analisis Mandiri":
     # Embed the HTML into the Streamlit app
     components.html(pyg_html, height=1000, scrolling=True)  
 elif choice == "Geospatial Factors & Risk Mapping":
-    genre2 = st.sidebar.radio("Sub menu",('Prediksi Risiko Individu','Peta Risiko Faskes','Peta Risiko per Wilayah'))
+    genre2 = st.sidebar.radio("Sub menu",('Peta Risiko per Wilayah','Peta Risiko Faskes','Prediksi Risiko Individu'))
     if genre2 == 'Prediksi Risiko Individu':
         st.subheader('Prediksi Risiko Peserta Berdasarkan Karakteristik Individu, Faktor Lingkungan dan Gaya Hidup')
         df = getData('sample_peserta.csv',',')
@@ -111,10 +111,11 @@ elif choice == "Geospatial Factors & Risk Mapping":
         k1,k2 = st.columns((1,4))
         with k1:
             if datapeserta['JK'].values[0] ==0:
-                st.image('cew.jpeg')
+                imm = Image.open('cew.jpeg')
                 # st.image(Image.open('accnt.png'))
             else:
-                st.image('cow.jpeg')
+                imm = Image.open('cow.jpeg')
+            st.image(im1.resize((200, 200)))
             with st.expander('Data Pokok Peserta', expanded=True):
                 st.write(f"Nomor Peserta: {datapeserta['PSTV01'].values[0]}")
                 i2 = datapeserta['JK'].values[0]
