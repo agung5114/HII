@@ -92,7 +92,8 @@ if choice == "Analisis Prevalensi DM/TB":
     # <div class='tableauPlaceholder' id='viz1693410447726' style='position: relative'><noscript><a href='#'><img alt='Dashboard Monitoring DM dan TB ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;bp&#47;bpjs_2023&#47;DashboardMonitoringDMdanTB&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='bpjs_2023&#47;DashboardMonitoringDMdanTB' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;bp&#47;bpjs_2023&#47;DashboardMonitoringDMdanTB&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1693410447726');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';} else { vizElement.style.width='100%';vizElement.style.height='1677px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
         
 elif choice =="Auto-Generated Dashboard":
-    genre3 = st.sidebar.radio("Sub menu",('Customizable Dashboard',"AI-Assisted"))
+    # genre3 = st.sidebar.radio("Sub menu",('Customizable Dashboard',"AI-Assisted"))
+    genre3 = st.sidebar.radio("Sub menu",('Customizable Dashboard'))
     if genre3 == 'Customizable Dashboard':
         import seaborn as sns
         import plotly_express as px
@@ -221,38 +222,38 @@ elif choice =="Auto-Generated Dashboard":
                 pyg_html = pyg.walk(df, return_html=True)
                 # Embed the HTML into the Streamlit app
                 components.html(pyg_html, height=1000, scrolling=True) 
-    else:
-        from pandasai import PandasAI 
-        from pandasai.llm.openai import OpenAI 
-        import pandasai.exceptions
+    # else:
+    #     from pandasai import PandasAI 
+    #     from pandasai.llm.openai import OpenAI 
+    #     import pandasai.exceptions
 
-        import pandas as pd
-        st.subheader('Pandas AI Analysis(Freemium)')
-        st.write("Get insights about the data")
-        df = getExcel('Rekap_wilayah.xlsx')
-        st.text("Sample Data")
-        st.dataframe(df)
-        st.write("Enter a prompt to generate insights about the data using PandasAI and OpenAI.")
-        prompt = st.text_input("Enter your prompt:")
-        if prompt:
-            try:
-                # apitoken = st.secrets["passw"]["api_token"]
-                # Initialize PandasAI and OpenAI
-                # llm = OpenAI()
-                # pandas_ai = PandasAI(llm)
-                llm = OpenAI(api_token=f"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")
-                # llm = OpenAI(api_token=apitoken)
-                pandas_ai = PandasAI(llm)
+    #     import pandas as pd
+    #     st.subheader('Pandas AI Analysis(Freemium)')
+    #     st.write("Get insights about the data")
+    #     df = getExcel('Rekap_wilayah.xlsx')
+    #     st.text("Sample Data")
+    #     st.dataframe(df)
+    #     st.write("Enter a prompt to generate insights about the data using PandasAI and OpenAI.")
+    #     prompt = st.text_input("Enter your prompt:")
+    #     if prompt:
+    #         try:
+    #             # apitoken = st.secrets["passw"]["api_token"]
+    #             # Initialize PandasAI and OpenAI
+    #             # llm = OpenAI()
+    #             # pandas_ai = PandasAI(llm)
+    #             llm = OpenAI(api_token=f"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")
+    #             # llm = OpenAI(api_token=apitoken)
+    #             pandas_ai = PandasAI(llm)
                 
-                # Run PandasAI with user input prompt
-                result = pandas_ai.run(df, prompt=prompt)
+    #             # Run PandasAI with user input prompt
+    #             result = pandas_ai.run(df, prompt=prompt)
                 
-                # Display result
-                if result is not None:
-                    st.write("### Insights")
-                    st.write(result)
-            except pandasai.exceptions.APIKeyNotFoundError:
-                st.warning("This app is for demo, use your own app Open API Key to generate insights")
+    #             # Display result
+    #             if result is not None:
+    #                 st.write("### Insights")
+    #                 st.write(result)
+    #         except pandasai.exceptions.APIKeyNotFoundError:
+    #             st.warning("This app is for demo, use your own app Open API Key to generate insights")
 elif choice == "Geospatial Factor Risk Mapping":
     genre2 = st.sidebar.radio("Sub menu",('Peta Risiko per Wilayah','Peta Risiko Faskes','Prediksi Risiko Individu','AISA'))
     if genre2 == 'Prediksi Risiko Individu':
