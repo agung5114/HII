@@ -43,9 +43,6 @@ frozenlist==1.4.0
 fsspec==2023.9.1
 gevent==22.10.2
 gevent-websocket==0.10.1
-gitdb==4.0.10
-gitignore-parser==0.1.6
-GitPython==3.1.32
 greenlet==2.0.2
 h11==0.14.0
 htbuilder==0.6.1
@@ -139,12 +136,6 @@ st-annotated-text==4.0.0
 stack-data==0.6.2
 statsmodels==0.14.0
 streamlit==1.25.0
-#taipy==2.4.0
-#taipy-config==2.4.0
-#taipy-core==2.4.0
-#taipy-gui==2.4.0
-#taipy-rest==2.4.0
-#taipy-templates==2.4.0
 tblib==2.0.0
 tenacity==8.2.3
 text-unidecode==1.3
