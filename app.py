@@ -233,11 +233,11 @@ elif choice =="Auto-Generated Dashboard":
             if upl is not None:
                 df = pd.read_csv(upl)
                 with st.expander('Drag & Drop Custom Charts', expanded=True):
-                import pygwalker as pyg
-                # df = getData('sample_peserta.csv',',')
-                pyg_html = pyg.walk(df, return_html=True)
-                # Embed the HTML into the Streamlit app
-                components.html(pyg_html, height=1000, scrolling=True)
+                    import pygwalker as pyg
+                    # df = getData('sample_peserta.csv',',')
+                    pyg_html = pyg.walk(df, return_html=True)
+                    # Embed the HTML into the Streamlit app
+                    components.html(pyg_html, height=1000, scrolling=True)
             else:
                 st.text('Silakan Upload Data anda (format CSV)')
         else:
