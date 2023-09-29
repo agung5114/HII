@@ -93,7 +93,7 @@ if choice == "Analisis Prevalensi DM/TB":
         
 elif choice =="Auto-Generated Dashboard":
     # genre3 = st.sidebar.radio("Sub menu",('Customizable Dashboard',"AI-Assisted"))
-    genre3 = st.sidebar.radio("Sub menu",('Customizable Dashboard',))
+    genre3 = st.sidebar.radio("Sub menu",('Customizable Dashboard','Drag & Drop Dashboard'))
     if genre3 == 'Customizable Dashboard':
         import seaborn as sns
         import plotly_express as px
@@ -155,12 +155,12 @@ elif choice =="Auto-Generated Dashboard":
                             fig = px.box(dfp, y=y_columns, x=x_column)
                             st.plotly_chart(fig)
                 # Generate the HTML using Pygwalker
-                with st.expander('Drag & Drop Custom Charts', expanded=True):
-                    import pygwalker as pyg
-                    # df = getData('sample_peserta.csv',',')
-                    pyg_html = pyg.walk(df, return_html=True)
-                    # Embed the HTML into the Streamlit app
-                    components.html(pyg_html, height=1000, scrolling=True)
+                # with st.expander('Drag & Drop Custom Charts', expanded=True):
+                #     import pygwalker as pyg
+                #     # df = getData('sample_peserta.csv',',')
+                #     pyg_html = pyg.walk(df, return_html=True)
+                #     # Embed the HTML into the Streamlit app
+                #     components.html(pyg_html, height=1000, scrolling=True)
             else:
                 st.subheader('Silakan Upload Data Anda (format CSV)')
         else:
@@ -216,13 +216,30 @@ elif choice =="Auto-Generated Dashboard":
                         fig = px.box(dfp, y=y_columns, x=x_column)
                         st.plotly_chart(fig)
             # Generate the HTML using Pygwalker
-            with st.expander('Drag & Drop Custom Charts', expanded=True):
-                import pygwalker as pyg
-                # df = getData('sample_peserta.csv',',')
-                pyg_html = pyg.walk(df, return_html=True)
-                # Embed the HTML into the Streamlit app
-                components.html(pyg_html, height=1000, scrolling=True) 
+            # with st.expander('Drag & Drop Custom Charts', expanded=True):
+            #     import pygwalker as pyg
+            #     # df = getData('sample_peserta.csv',',')
+            #     pyg_html = pyg.walk(df, return_html=True)
+            #     # Embed the HTML into the Streamlit app
+            #     components.html(pyg_html, height=1000, scrolling=True) 
     # else:
+    else:
+        import seaborn as sns
+        import plotly_express as px
+        pilihdata = st.sidebar.selectbox('Pilih Data',['Sample1','Upload Data'])
+        # df = pd.read_excel('Rekap_wilayah.xlsx')
+        if pilihdata=='Upload Data':
+            upl = st.file_uploader('Upload data anda',type=['csv'])
+            if upl is not None:
+                df = pd.read_csv(upl)
+        else:
+            df = getExcel('Rekap_wilayah.xlsx')
+        with st.expander('Drag & Drop Custom Charts', expanded=True):
+            import pygwalker as pyg
+            # df = getData('sample_peserta.csv',',')
+            pyg_html = pyg.walk(df, return_html=True)
+            # Embed the HTML into the Streamlit app
+            components.html(pyg_html, height=1000, scrolling=True)
     #     from pandasai import PandasAI 
     #     from pandasai.llm.openai import OpenAI 
     #     import pandasai.exceptions
