@@ -269,7 +269,12 @@ elif choice == "Geospatial Factor Risk Mapping":
 
         k1,k2 = st.columns((1,4))
         with k1:
-            st.image(Image.open('accnt.png'))
+            if datapeserta['JK'].values[0] ==0:
+            	  imm = Image.open('cew.jpg')
+            else:
+            	  imm = Image.open('cow.jpg')
+            st.image(imm.resize((200, 200)))
+            # st.image(Image.open('accnt.png'))
             with st.expander('Data Pokok Peserta', expanded=True):
                 st.write(f"Nomor Peserta: {datapeserta['PSTV01'].values[0]}")
                 i2 = datapeserta['JK'].values[0]
