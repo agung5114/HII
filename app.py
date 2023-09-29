@@ -93,7 +93,7 @@ if choice == "Analisis Prevalensi DM/TB":
         
 elif choice =="Auto-Generated Dashboard":
     # genre3 = st.sidebar.radio("Sub menu",('Customizable Dashboard',"AI-Assisted"))
-    genre3 = st.sidebar.radio("Sub menu",('Customizable Dashboard'))
+    genre3 = st.sidebar.radio("Sub menu",('Customizable Dashboard',))
     if genre3 == 'Customizable Dashboard':
         import seaborn as sns
         import plotly_express as px
