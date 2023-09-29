@@ -236,12 +236,12 @@ elif choice =="Auto-Generated Dashboard":
         prompt = st.text_input("Enter your prompt:")
         if prompt:
             try:
-                api_token = st.secrets['api_token']
+                apitoken = st.secrets["passw"]["api_token"]
                 # Initialize PandasAI and OpenAI
                 # llm = OpenAI()
                 # pandas_ai = PandasAI(llm)
                 # llm = OpenAI(api_token=f"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")
-                llm = OpenAI(api_token=api_token)
+                llm = OpenAI(api_token=apitoken)
                 pandas_ai = PandasAI(llm)
                 
                 # Run PandasAI with user input prompt
