@@ -141,7 +141,7 @@ six==1.16.0
 smmap==5.0.0
 sortedcontainers==2.4.0
 soupsieve==2.5
-SQLAlchemy==1.4.49
+#SQLAlchemy==1.4.49
 sqlglot==18.3.0
 st-annotated-text==4.0.0
 stack-data==0.6.2
