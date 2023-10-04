@@ -248,37 +248,7 @@ elif choice =="Auto-Generated Dashboard":
                 pyg_html = pyg.walk(df, return_html=True)
                 # Embed the HTML into the Streamlit app
                 components.html(pyg_html, height=1000, scrolling=True)
-    #     from pandasai import PandasAI 
-    #     from pandasai.llm.openai import OpenAI 
-    #     import pandasai.exceptions
-
-    #     import pandas as pd
-    #     st.subheader('Pandas AI Analysis(Freemium)')
-    #     st.write("Get insights about the data")
-    #     df = getExcel('Rekap_wilayah.xlsx')
-    #     st.text("Sample Data")
-    #     st.dataframe(df)
-    #     st.write("Enter a prompt to generate insights about the data using PandasAI and OpenAI.")
-    #     prompt = st.text_input("Enter your prompt:")
-    #     if prompt:
-    #         try:
-    #             # apitoken = st.secrets["passw"]["api_token"]
-    #             # Initialize PandasAI and OpenAI
-    #             # llm = OpenAI()
-    #             # pandas_ai = PandasAI(llm)
-    #             llm = OpenAI(api_token=f"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")
-    #             # llm = OpenAI(api_token=apitoken)
-    #             pandas_ai = PandasAI(llm)
-                
-    #             # Run PandasAI with user input prompt
-    #             result = pandas_ai.run(df, prompt=prompt)
-                
-    #             # Display result
-    #             if result is not None:
-    #                 st.write("### Insights")
-    #                 st.write(result)
-    #         except pandasai.exceptions.APIKeyNotFoundError:
-    #             st.warning("This app is for demo, use your own app Open API Key to generate insights")
+    
 elif choice == "Geospatial Factor Risk Mapping":
     genre2 = st.sidebar.radio("Sub menu",('Peta Risiko per Wilayah','Peta Risiko Faskes','Prediksi Risiko Individu','AISA'))
     if genre2 == 'Prediksi Risiko Individu':
