@@ -97,7 +97,7 @@ border-radius: 8px; will-change: transform;">
 src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF53q6iD-E&#x2F;view?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
 </iframe>
 </div>
-<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF53q6iD-E&#x2F;view?utm_content=DAF53q6iD-E&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener">From the insight generated, DM has a tendency related to geographical characteristics</a>
+<a href="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF53q6iD-E&#x2F;view?utm_content=DAF53q6iD-E&amp;utm_campaign=designshare&amp;utm_medium=embeds&amp;utm_source=link" target="_blank" rel="noopener"></a>
 ''',height=900)
 
 elif genre == 'Patient Risk Profile':
