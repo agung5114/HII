@@ -1,5 +1,5 @@
 import streamlit as st
-st.set_page_config(page_title="GRIP", page_icon=None,layout="wide", initial_sidebar_state="auto",menu_items=None)
+st.set_page_config(page_title="IMHAT", page_icon=None,layout="wide", initial_sidebar_state="auto",menu_items=None)
                 #    {'About': "# This is a header. This is an *extremely* cool app!"}
 # Initialization
 if 'key' not in st.session_state:
@@ -78,8 +78,14 @@ def get_img_with_href(local_img_path, target_url):
         </a>'''
     return html_code
 
-gif_html = get_img_with_href('imhat.png', 'https://grip-bpjs23.streamlit.app/')
+gif_html = get_img_with_href('imhat-logo.png', 'https://grip-bpjs23.streamlit.app/')
 st.sidebar.markdown(gif_html, unsafe_allow_html=True)
+st.sidebar.markdown('''
+    <a href="https://www.googlr.com">
+        IMHAT
+    </a>''',
+    unsafe_allow_html=True
+)
 
 genre = st.sidebar.radio("Sub menu",('Timeline by Regions','Region Characteristics and Risk Level','Region Resource Availability Level','Patient Risk Profile'))
 if genre == 'Timeline by Regions':
