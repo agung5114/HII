@@ -78,7 +78,7 @@ def get_img_with_href(local_img_path, target_url):
         </a>'''
     return html_code
 
-gif_html = get_img_with_href('imhat-logo.png', 'https://grip-bpjs23.streamlit.app/')
+gif_html = get_img_with_href('imhat.png', 'https://imhat.mofdac.com/')
 st.sidebar.markdown(gif_html, unsafe_allow_html=True)
 st.sidebar.markdown('''
     <a href="https://www.googlr.com">
