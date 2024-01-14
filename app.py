@@ -58,7 +58,7 @@ def getExcel(url):
     df = pd.read_excel(url)
     return df
 
-st.sidebar.image('imhat-logo-nt.png')
+# st.sidebar.image('imhat-logo-nt.png')
 import os
 import base64
 
@@ -78,7 +78,7 @@ def get_img_with_href(local_img_path, target_url):
         </a>'''
     return html_code
 
-gif_html = get_img_with_href('imhat-logo.png', 'https://grip-bpjs23.streamlit.app/')
+gif_html = get_img_with_href('imhat.png', 'https://grip-bpjs23.streamlit.app/')
 st.sidebar.markdown(gif_html, unsafe_allow_html=True)
 
 genre = st.sidebar.radio("Sub menu",('Timeline by Regions','Region Characteristics and Risk Level','Region Resource Availability Level','Patient Risk Profile'))
