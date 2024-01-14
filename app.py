@@ -108,7 +108,7 @@ elif genre == 'Patient Risk Profile':
     # datapeserta = df[df['PSTV01'].isin([peserta[0]])]
     ops = ['Rendah','Tinggi']
     ops_dict = {'Rendah':0,'Tinggi':1}
-    selectForm = st.selectbox("Pilih Peserta", peserta)
+    selectForm = st.selectbox("Choose Patient", peserta)
     # if submitted:
     datapeserta = df[df['PSTV01'].isin([selectForm])]
 
