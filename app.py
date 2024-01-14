@@ -59,7 +59,28 @@ def getExcel(url):
     return df
 
 st.sidebar.image('imhat-logo-nt.png')
-st.sidebar.markdown("[![Foo](st.sidebar.image('imhat-logo-nt.png'))](http://google.com.au/)")
+import os
+import base64
+
+@st.cache(allow_output_mutation=True)
+def get_base64_of_bin_file(bin_file):
+    with open(bin_file, 'rb') as f:
+        data = f.read()
+    return base64.b64encode(data).decode()
+
+@st.cache(allow_output_mutation=True)
+def get_img_with_href(local_img_path, target_url):
+    img_format = os.path.splitext(local_img_path)[-1].replace('.', '')
+    bin_str = get_base64_of_bin_file(local_img_path)
+    html_code = f'''
+        <a href="{target_url}">
+            <img src="data:image/{img_format};base64,{bin_str}" />
+        </a>'''
+    return html_code
+
+gif_html = get_img_with_href('imhat-logo', 'https://grip-bpjs23.streamlit.app/')
+st.sidebar.markdown(gif_html, unsafe_allow_html=True)
+
 genre = st.sidebar.radio("Sub menu",('Timeline by Regions','Region Characteristics and Risk Level','Region Resource Availability Level','Patient Risk Profile'))
 if genre == 'Timeline by Regions':
     components.html('''
