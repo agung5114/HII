@@ -82,7 +82,7 @@ gif_html = get_img_with_href('imhat-logo.png', 'https://grip-bpjs23.streamlit.ap
 st.sidebar.markdown(gif_html, unsafe_allow_html=True)
 st.sidebar.markdown('''
     <a href="https://www.googlr.com">
-        IMHAT
+        <h4>Back to main menu</h4>
     </a>''',
     unsafe_allow_html=True
 )
