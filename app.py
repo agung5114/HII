@@ -158,9 +158,9 @@ elif genre == 'Patient Risk Profile':
                 i12 = st.text_input(label='Fruits and Vegetables',value=['High' if datapeserta['Sayur_level'].values == 1 else 'Low'][0])
             
             with st.expander('Environmental Factors', expanded=True):
-                i10 = st.text_input(label='Tingkat Sanitasi Layak',value=['High' if datapeserta['Sanitasi_level'].values == 1 else 'Low'][0])
-                i8 = st.text_input(label='Tingkat Pencemaran Air',value=['High' if datapeserta['Penc_Air_level'].values == 1 else 'Low'][0])
-                i9 = st.text_input(label='Tingkat Pencemaran Udara',value=['High' if datapeserta['Penc_Udara_level'].values == 1 else 'Low'][0])
+                i10 = st.text_input(label='Regional Sanitation Level',value=['High' if datapeserta['Sanitasi_level'].values == 1 else 'Low'][0])
+                i8 = st.text_input(label='Water Polusion Level',value=['High' if datapeserta['Penc_Air_level'].values == 1 else 'Low'][0])
+                i9 = st.text_input(label='Air Polution Level',value=['High' if datapeserta['Penc_Udara_level'].values == 1 else 'Low'][0])
             v1 = i1
             v2 = i2
             v3 = i3
