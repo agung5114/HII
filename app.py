@@ -101,7 +101,7 @@ src="https:&#x2F;&#x2F;www.canva.com&#x2F;design&#x2F;DAF53q6iD-E&#x2F;view?embe
 ''',height=900)
 
 elif genre == 'Patient Risk Profile':
-    st.subheader('Prediksi Risiko Peserta Berdasarkan Karakteristik Individu, Faktor Lingkungan dan Gaya Hidup')
+    st.subheader('Patient Risk Profile based on Regional Risk, Patient Lifestyles and Historical Symptoms')
     df = getData('sample_peserta.csv',',')
     # df['IPM'] = df['IPM'].str.replace(',','.').astype('float')
     peserta = df['PSTV01'].head(100).tolist()
@@ -120,45 +120,47 @@ elif genre == 'Patient Risk Profile':
             imm = Image.open('cow.jpg')
         st.image(imm.resize((200, 200)))
         # st.image(Image.open('accnt.png'))
-        with st.expander('Data Pokok Peserta', expanded=True):
-            st.write(f"Nomor Peserta: {datapeserta['PSTV01'].values[0]}")
+        with st.expander('Patient Basic Data', expanded=True):
+            st.write(f"Patient Number: {datapeserta['PSTV01'].values[0]}")
             i2 = datapeserta['JK'].values[0]
-            st.write(f"Jenis Kelamin: {['Laki-Laki' if i2==1 else 'Perempuan'][0]}")
+            st.write(f"Gender: {['Male' if i2==1 else 'Female'][0]}")
             # i3 = datapeserta['Status'].values[0]
             # st.write(f"Status Peserta: {i3}")
-            st.write(f"Kota: {datapeserta['PSTV10'].values[0]}")
-            st.write(f"Provinsi: {datapeserta['PSTV09'].values[0]}")
-        with st.expander('Prediksi Risiko DM dan TB', expanded=True):
-                tbrisk = datapeserta['tb_risk'].values[0]
+            st.write(f"Region: {datapeserta['PSTV10'].values[0]}")
+            st.write(f"Province: {datapeserta['PSTV09'].values[0]}")
+        with st.expander('DM Risk Prediction', expanded=True):
                 dmrisk = datapeserta['dm_risk'].values[0]
-                st.subheader(f"Risiko DM: {dmrisk}")
-                st.subheader(f"Risiko TB: {tbrisk}")
-                # annotated_text("Risiko Diabetes Melitus: ",("",f'{dmrisk}'))
-                # annotated_text("Risiko Tuberkulosis: ",("",f'{tbrisk}'))
+                if dmrisk == 'Rendah':
+                  dmrisk = 'Low Risk'
+                elif dmrisk == 'Sedang':
+                  dmrisk = 'Medium Risk'
+                else:
+                  dmrisk = 'High Risk'
+                st.subheader(f"DM Risk: {dmrisk}")
 
     with k2:
         dmrisk1 = None
         tbrisk2 = None
         c1,c2 = st.columns((1,1))
         with c1:
-            with st.expander('Faktor Gaya Hidup dan Konsumsi', expanded=True):
-                i13 = st.text_input(label='Konsumsi Gula',value=['Tinggi' if datapeserta['Gula_level'].values == 1 else 'Rendah'][0])
-                i11 = st.text_input(label='Konsumsi Rokok',value=['Tinggi' if datapeserta['Rokok_level'].values == 1 else 'Rendah'][0])
-                i12 = st.text_input(label='Konsumsi Sayur',value=['Tinggi' if datapeserta['Sayur_level'].values == 1 else 'Rendah'][0])
-            
-            with st.expander('Faktor Individual Peserta', expanded=True):
-                i1 = st.text_input(label='Umur',value=datapeserta['Umur'].values[0])
-                i4 = st.text_input(label='Kelas Peserta',value=datapeserta['Kelas'].values[0])
-                i5 = st.text_input(label='Kelompok Peserta',value=datapeserta['Kelompok'].values[0])
-                i3 = st.text_input(label='Status Peserta',value=datapeserta['Status'].values[0])
-        with c2:
+            with st.expander('Patient Individual Factors', expanded=True):
+                i1 = st.text_input(label='Age',value=datapeserta['Umur'].values[0])
+                i4 = st.text_input(label='Insurance Class',value=datapeserta['Kelas'].values[0])
+                i5 = st.text_input(label='Patient Group',value=datapeserta['Kelompok'].values[0])
+                i3 = st.text_input(label='Patient Status',value=datapeserta['Status'].values[0])
             with st.expander('Faktor Pembangunan Wilayah', expanded=True):
-                i6 = st.text_input(label='Tingkat IPM',value=datapeserta['IPM'].values[0])
-                i7 = st.text_input(label='Kepadatan Wilayah',value=['Tinggi' if datapeserta['Kepadatan_level'].values == 1 else 'Rendah'][0])
-            with st.expander('Faktor Lingkungan', expanded=True):
-                i10 = st.text_input(label='Tingkat Sanitasi Layak',value=['Tinggi' if datapeserta['Sanitasi_level'].values == 1 else 'Rendah'][0])
-                i8 = st.text_input(label='Tingkat Pencemaran Air',value=['Tinggi' if datapeserta['Penc_Air_level'].values == 1 else 'Rendah'][0])
-                i9 = st.text_input(label='Tingkat Pencemaran Udara',value=['Tinggi' if datapeserta['Penc_Udara_level'].values == 1 else 'Rendah'][0])
+                i6 = st.text_input(label='HR Index',value=datapeserta['IPM'].values[0])
+                i7 = st.text_input(label='Area Density',value=['High' if datapeserta['Kepadatan_level'].values == 1 else 'Low'][0])
+        with c2:
+            with st.expander('Patient Consumption Lifestyles', expanded=True):
+                i13 = st.text_input(label='Sugar',value=['High' if datapeserta['Gula_level'].values == 1 else 'Low'][0])
+                i11 = st.text_input(label='Ciggarettes',value=['High' if datapeserta['Rokok_level'].values == 1 else 'Low'][0])
+                i12 = st.text_input(label='Fruits and Vegetables',value=['High' if datapeserta['Sayur_level'].values == 1 else 'Low'][0])
+            
+            with st.expander('Environmental Factors', expanded=True):
+                i10 = st.text_input(label='Tingkat Sanitasi Layak',value=['High' if datapeserta['Sanitasi_level'].values == 1 else 'Low'][0])
+                i8 = st.text_input(label='Tingkat Pencemaran Air',value=['High' if datapeserta['Penc_Air_level'].values == 1 else 'Low'][0])
+                i9 = st.text_input(label='Tingkat Pencemaran Udara',value=['High' if datapeserta['Penc_Udara_level'].values == 1 else 'Low'][0])
             v1 = i1
             v2 = i2
             v3 = i3
