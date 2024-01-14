@@ -59,12 +59,7 @@ def getExcel(url):
     return df
 
 st.sidebar.image('imhat-logo-nt.png')
-components.html('''<img
-            src="imhat-logo.png"
-            alt=""
-            style="height: 40px; width: 200px"
-          />
-''')
+st.sidebar.markdown("[![Foo](imhat-logo.png)](http://google.com.au/)")
 genre = st.sidebar.radio("Sub menu",('Timeline by Regions','Region Characteristics and Risk Level','Region Resource Availability Level','Patient Risk Profile'))
 if genre == 'Timeline by Regions':
     components.html('''
